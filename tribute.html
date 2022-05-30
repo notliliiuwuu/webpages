@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="main-container">
+        <div class="namexd">
+        <h1>
+            Brobgonal tribute page
+        </h1>
+        <h2>
+            Public enemy nº1
+        </h2>
+        <div class="imagessss" id="photos">
+        <img class="shown" height="400" width="400" src="https://preview.redd.it/ecuw2htop5881.jpg?width=640&crop=smart&auto=webp&s=06282e22ae923fc6b1fdbb2dad4260b72d900c01"/>
+        <img class="hidden" height="400" width="400" src="https://i.pinimg.com/550x/8f/53/30/8f533073da06dd7371d1aaf643e8f40f.jpg">
+        <img class="hidden" height="400" width="400" src="https://i1.sndcdn.com/avatars-qIlK5UAO58lEmPS2-G5zV7A-t240x240.jpg">
+    </div>
+        <div class="thebutton">
+        <button onclick="changephoto(event, this)">
+            new photo
+        </button>
+        </div>
+    </div>
+    <div class="othername">
+        <div>
+        <h3 class="list blue">
+            Characteristics
+        </h3>
+        <ol>
+            <li>He's 0 meters tall</li>
+            <li>His face is always the same</li>
+            <li>He can jump very high</li>
+        </ol>
+    </div>
+    <div>
+        <h3 class="list red">
+            Why he's a public enemy
+        </h3>
+        <ol>
+            <li>He has murdered more than 17 people</li>
+            <li>He made 24 war crimes in Afghanistan</li>
+            <li>He's racist</li>
+        </ol>
+    </div>
+    </div>
+    </div>
+</body>
+    <style>
+.main-container {
+    max-width: 970px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #e8ffec;
+}
+
+.namexd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.othername {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    text-align: center;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+    </style>
+    <script>
+const changephoto = function() {
+    var photos = document.getElementById("photos").querySelectorAll("img");
+
+    var imageArray = Array.from(photos)
+
+    const showIndex = imageArray.findIndex((listimage) => listimage.classList.contains("shown"))
+
+    let nextshownindex
+if (showIndex === imageArray.length - 1){
+  nextshownindex = 0
+} else {
+  nextshownindex = showIndex + 1
+}
+
+    imageArray.forEach((elem, index) => {
+      console.log(elem)
+      console.log(index)
+        if (index === nextshownindex) {
+          elem.classList.remove("hidden")
+          elem.classList.add("shown")
+        } else {
+          elem.classList.remove("shown")
+          elem.classList.add("hidden")
+        }
+    })
+}
+
+
+var photos = document.getElementById("photos").querySelectorAll("img");
+var imageArray = Array.from(photos)
+console.log(imageArray)
+    </script>
+</html>
